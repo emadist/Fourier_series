@@ -18,22 +18,39 @@ function Square(){
 }
 
 function setup() {
-  createCanvas(1500, 400);
-  button = createButton('toggle')
+  createCanvas(900, 400);
+  button = createButton('toggle(square/sawtooth)')
+  button.size(160,50)
+  button.position(170, 560)
+  button.style('background-color', '#1B1D1D')
+  button.style('color', '#ffffff')
   button.mousePressed(sawtooth)
-  slider = createSlider(1, 50, 1);
-  slider.position(127,42)
-  slider1 = createSlider(1, 100, 1);
-  slider1.position(850, 340)
-  slider2 = createSlider(0, 100, 25);
-  Div = createDiv()
+  slider = createSlider(1, 25, 1);
+  slider.position(200,450)
+  slider1 = createSlider(1, 64, 1);
+  slider1.position(200, 480)
+  slider2 = createSlider(0, 80, 25);
+  slider2.position(200,510)
+
+  //Slider texts
+  let txt1 = createDiv('Number of circles(n) : ')
+  txt1.position(50, 452)
+  txt1.style('color', '#ffffff')
+  let txt2 = createDiv('Speed : ')
+  txt2.position(141, 482)
+  txt2.style('color', '#ffffff')
+  let txt3 = createDiv('Size : ')
+  txt3.position(151, 512)
+  txt3.style('color', '#ffffff')
+
+
+
 }
 
 function draw() {
   let t = map(slider1.value(), 0, 100, 0.01, 1);
-  Div.html(t)
   background(20);
-  translate(200,200)
+  translate(slider2.value() + 150,200)
 
 
   let x = 0
@@ -44,7 +61,7 @@ function draw() {
     py = y;
     if(boolean == 1){
       s = 4;
-      v = slider2.value()
+      v = slider2.value() + 40
       if (i % 2 != 0){
         n = -1 * i
       }else {
@@ -74,7 +91,7 @@ function draw() {
   stroke(255)
   translate(220,0)
   stroke(100,100,0)
-  line(x- 220, y, 0, wave[0])
+  line(x- 220, y, slider2.value(), wave[0] )
   wave.unshift(y);
   beginShape();
   stroke(120,0,0)
@@ -82,7 +99,7 @@ function draw() {
   stroke(180,0,0)
 
   for (let i = 0;i < wave.length;i++){
-  vertex(i,wave[i]);
+  vertex(slider2.value() + i,wave[i]);
 }
   endShape();
   if (wave.length > 1100){

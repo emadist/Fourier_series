@@ -1,2 +1,2 @@
 # Fourier_series
-Fourier Series Using p5.js
+A simple Fourier_series dynamic graph created for a school project. using p5.js. you can see the project at www.emadist.github.io/Fourier_series/
