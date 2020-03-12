@@ -18,9 +18,8 @@ function Square(){
 }
 
 function setup() {
-  createCanvas(900, 400);
+  createCanvas(1100, 400);
   button = createButton('toggle(square/sawtooth)')
-  button.size(160,50)
   button.position(170, 560)
   button.style('background-color', '#1B1D1D')
   button.style('color', '#ffffff')
@@ -34,13 +33,13 @@ function setup() {
 
   //Slider texts
   let txt1 = createDiv('Number of circles(n) : ')
-  txt1.position(50, 452)
+  txt1.position(18, 452)
   txt1.style('color', '#ffffff')
   let txt2 = createDiv('Speed : ')
-  txt2.position(141, 482)
+  txt2.position(131, 482)
   txt2.style('color', '#ffffff')
   let txt3 = createDiv('Size : ')
-  txt3.position(151, 512)
+  txt3.position(141, 512)
   txt3.style('color', '#ffffff')
 
 
